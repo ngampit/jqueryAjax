@@ -17,6 +17,7 @@ const searchDev = () => {
   $("#form").submit((e)=> {
     e.preventDefault();
     info = $("input").first().val();
+    $(".show").empty();
     getData(info)
   })
 }
