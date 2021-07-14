@@ -1,21 +1,4 @@
 // Ajax - get data from API 
-
-let url = `https://api.tvmaze.com/search/shows?q=girls`; 
-
-const searchDiv = ()=> {
-  
-$(".search").append(`
-<form action="/action_page.php">
-  <label for="search">Search</label>
-  <div class="searchCss">
-    <input type="search" id="search" name="search"><br><br>
-    <input type="submit" value="Submit">
-  </div>
-</form>`)
-
-}
-
-
 // Append new div 
 const appendDiv = (tit,img,sum) => {
   $(".show").append(`<div class="container">
@@ -29,12 +12,19 @@ const appendDiv = (tit,img,sum) => {
   </div>`);
 }
 
+let info = "girls";
+const searchDev = () => {
+  $("#form").submit((e)=> {
+    e.preventDefault();
+    info = $("input").first().val();
+    getData(info)
+  })
+}
+
 // Ajax got API 
-const getData = () => {
-  
-  
-  searchDiv()
-  $.ajax({ url:url, method:"get"}).then((response) => {  
+const getData = (fromSearch) => {
+  url = `http://api.tvmaze.com/search/shows?q=${fromSearch}`  
+  $.ajax({ url, method:"get"}).then((response) => {  
   for(let data of response) {
     const title = data.show.name;
     const image = data.show.image.medium;
@@ -42,10 +32,12 @@ const getData = () => {
     appendDiv(title,image,summary)
   }
   })
+
+
 }
 
 
 // render with Jquery 
 $(document).ready(()=>{
-  getData()
+  searchDev()
 });
