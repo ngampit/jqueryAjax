@@ -40,5 +40,6 @@ const getData = (fromSearch) => {
 
 // render with Jquery 
 $(document).ready(()=>{
+  getData(info)
   searchDev()
 });
