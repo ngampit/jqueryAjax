@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.nav {
+  background-color: greenyellow;
+  height: 70px;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  background-color: lightseagreen;
+}
+
+.leftDiv {
+  width: 20%;
+}
+
+.rightDiv {
+  width: 80%;
+}
+
+.img {
+  width: 70%;
+  padding: 10px;
+}
+
+/* search div */
+.search {
+  background-color: white;
+}
+
+.searchCss {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 15px;
+  padding-left: 15px;  
+}
+
